@@ -3,59 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reloj Digital en Múltiples Zonas Horarias - Visualiza la hora en diferentes ciudades del mundo">
-    <title>Reloj Digital - Múltiples Zonas Horarias</title>
+    <meta name="description" content="Reloj Digital Profesional - Múltiples Zonas Horarias con Diseño 3D Futurista">
+    <title>Reloj Digital Premium - Diseño 3D Futurista</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- FONDO ANIMADO -->
+    <div class="animated-bg">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+        <div class="star-field"></div>
+    </div>
+
     <div class="container">
-        <!-- HEADER -->
+        <!-- HEADER CON EFECTO 3D -->
         <header class="header">
-            <h1><i class="fas fa-clock"></i> Reloj Digital Global</h1>
-            <p>Visualiza la hora en diferentes zonas horarias del mundo</p>
+            <div class="header-content">
+                <div class="icon-3d">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="header-text">
+                    <h1>RELOJ DIGITAL</h1>
+                    <p>PREMIUM 3D GLOBAL</p>
+                    <div class="header-line"></div>
+                </div>
+            </div>
+            <div class="gradient-border"></div>
         </header>
 
-        <!-- CONTROLES -->
-        <div class="controls">
-            <input type="text" id="searchCity" placeholder="Buscar ciudad..." class="search-input">
-            <select id="timeFormat" class="format-select">
-                <option value="24">Formato 24h</option>
-                <option value="12">Formato 12h (AM/PM)</option>
-            </select>
-            <button id="addCityBtn" class="btn-add"><i class="fas fa-plus"></i> Agregar Ciudad</button>
-        </div>
+        <!-- CONTROLES PREMIUM -->
+        <div class="controls-section">
+            <div class="controls">
+                <div class="control-group">
+                    <label>Buscar Ciudad</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchCity" placeholder="NYC, Tokio, Londres..." class="search-input">
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Formato</label>
+                    <div class="format-toggle">
+                        <button class="format-btn active" data-format="24">24h</button>
+                        <button class="format-btn" data-format="12">12h</button>
+                    </div>
+                </div>
 
-        <!-- MODAL PARA AGREGAR CIUDAD -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Agregar Nueva Ciudad</h2>
-                <input type="text" id="cityInput" placeholder="Ej: Nueva York, Tokio, Londres..." class="city-input">
-                <p class="city-suggestions" id="citySuggestions"></p>
-                <button id="confirmAddCity" class="btn-confirm">Agregar</button>
+                <button id="addCityBtn" class="btn-add-premium">
+                    <span class="btn-shine"></span>
+                    <i class="fas fa-plus"></i>
+                    <span>Agregar Ciudad</span>
+                </button>
             </div>
         </div>
 
-        <!-- RELOJ PRINCIPAL -->
-        <div class="main-clock">
-            <div class="clock-display">
-                <div class="time-large" id="mainTime">00:00:00</div>
-                <div class="date-large" id="mainDate">Lunes, 1 de Enero</div>
-                <div class="timezone-large" id="mainTimezone">Zona Horaria Local</div>
+        <!-- MODAL PREMIUM -->
+        <div id="modal" class="modal-premium">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content-3d">
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+                <div class="modal-header-3d">
+                    <h2>AGREGAR NUEVA CIUDAD</h2>
+                    <div class="modal-line"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="input-wrapper-premium">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="cityInput" placeholder="Ej: Nueva York, Tokio, Londres..." class="city-input-premium">
+                    </div>
+                    <div class="city-suggestions-premium" id="citySuggestions"></div>
+                    <button id="confirmAddCity" class="btn-confirm-premium">
+                        <span class="btn-text">Confirmar</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- RELOJES DE CIUDADES -->
-        <div class="clocks-grid" id="clocksGrid">
-            <!-- Se generan dinámicamente con JavaScript -->
+        <!-- RELOJ PRINCIPAL 3D -->
+        <div class="main-clock-container">
+            <div class="main-clock-3d">
+                <div class="clock-inner">
+                    <div class="time-display-3d">
+                        <div class="time-large-3d" id="mainTime">00:00:00</div>
+                        <div class="time-label">HORA LOCAL</div>
+                    </div>
+                    <div class="divider-gold"></div>
+                    <div class="date-info-3d">
+                        <div class="date-large" id="mainDate">Lunes, 1 de Enero</div>
+                        <div class="timezone-info-3d" id="mainTimezone">Zona Horaria</div>
+                    </div>
+                </div>
+                <div class="clock-shadow"></div>
+            </div>
+            
+            <!-- DECORACIÓN 3D -->
+            <div class="decoration-3d">
+                <div class="sphere sphere-1"></div>
+                <div class="sphere sphere-2"></div>
+                <div class="cube"></div>
+            </div>
         </div>
 
-        <!-- INFORMACIÓN -->
-        <div class="info-section">
-            <h2>Zonas Horarias Disponibles</h2>
+        <!-- GRID DE RELOJES PREMIUM -->
+        <div class="clocks-section">
+            <div class="section-header">
+                <h2>ZONAS HORARIAS</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="clocks-grid" id="clocksGrid">
+                <!-- Se genera dinámicamente -->
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE INFORMACIÓN -->
+        <div class="info-section-premium">
+            <div class="info-header">
+                <h2>INFORMACIÓN DE ZONAS</h2>
+                <div class="info-line"></div>
+            </div>
             <div class="timezone-info" id="timezoneInfo"></div>
         </div>
+
+        <!-- FOOTER -->
+        <footer class="footer-premium">
+            <p>© 2024 Reloj Digital Premium | Diseño 3D Profesional</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>

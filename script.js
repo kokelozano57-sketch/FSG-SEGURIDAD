@@ -27,7 +27,7 @@ let selectedCities = [
     { name: 'Tokio', timezone: 'Asia/Tokyo', flag: '🇯🇵' },
 ];
 
-let timeFormat = '24'; // 24 o 12
+let timeFormat = '24';
 
 // ================================
 // ELEMENTOS DEL DOM
@@ -38,13 +38,13 @@ const mainTimezone = document.getElementById('mainTimezone');
 const clocksGrid = document.getElementById('clocksGrid');
 const modal = document.getElementById('modal');
 const addCityBtn = document.getElementById('addCityBtn');
-const closeModal = document.querySelector('.close');
+const closeModal = document.querySelector('.modal-close');
 const confirmAddCity = document.getElementById('confirmAddCity');
 const cityInput = document.getElementById('cityInput');
 const citySuggestions = document.getElementById('citySuggestions');
-const formatSelect = document.getElementById('timeFormat');
 const searchCity = document.getElementById('searchCity');
 const timezoneInfo = document.getElementById('timezoneInfo');
+const formatBtns = document.querySelectorAll('.format-btn');
 
 // ================================
 // EVENT LISTENERS
@@ -70,8 +70,12 @@ cityInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addCity();
 });
 
-formatSelect.addEventListener('change', (e) => {
-    timeFormat = e.target.value;
+formatBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        formatBtns.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        timeFormat = e.target.dataset.format;
+    });
 });
 
 searchCity.addEventListener('input', filterCities);
@@ -187,7 +191,7 @@ function renderClocks() {
         const date = dateFormatter.format(new Date());
 
         card.innerHTML = `
-            <div class="city-name">${city.flag} ${city.name}</div>
+            <div class="city-name"><span class="city-flag">${city.flag}</span>${city.name}</div>
             <div class="clock-time">${time}</div>
             <div class="clock-date">${date}</div>
             <div class="clock-timezone">${city.timezone}</div>
@@ -215,7 +219,7 @@ function showSuggestions() {
     }
 
     const suggestions = filtered.slice(0, 5).map(city => 
-        `<span style="cursor: pointer; margin-right: 0.5rem; padding: 0.3rem 0.6rem; background: rgba(0,212,255,0.2); border-radius: 4px; display: inline-block; transition: all 0.3s;" onclick="selectCitySuggestion('${city.name}', '${city.timezone}', '${city.flag}')">${city.flag} ${city.name}</span>`
+        `<span style="cursor: pointer; margin-right: 0.5rem; padding: 0.4rem 0.8rem; background: rgba(212,175,55,0.2); border-radius: 6px; display: inline-block; transition: all 0.3s; border: 1px solid rgba(212,175,55,0.4); font-weight: 500;" onclick="selectCitySuggestion('${city.name}', '${city.timezone}', '${city.flag}')">${city.flag} ${city.name}</span>`
     ).join('');
 
     citySuggestions.innerHTML = suggestions;
@@ -301,4 +305,4 @@ setInterval(updateAllClocks, 1000);
 renderClocks();
 updateAllClocks();
 
-console.log('%c🕐 Reloj Digital Global - Cargado exitosamente', 'color: #00d4ff; font-size: 14px; font-weight: bold;');
+console.log('%c🕐 Reloj Digital Premium 3D - Cargado exitosamente', 'color: #d4af37; font-size: 16px; font-weight: bold; text-shadow: 0 0 10px rgba(212,175,55,0.6);');
